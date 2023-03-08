@@ -19,9 +19,9 @@ namespace SzellnerAPI.Controllers
 
         // GET: api/Books
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            return Ok(bookService.GetAll());
         }
 
         // GET api/Books/5
@@ -31,13 +31,23 @@ namespace SzellnerAPI.Controllers
             return Ok(bookService.Get(new Book()
             {
                 Id = id
-            })) ;
+            }));
         }
 
         // POST api/Books
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post(Book book_json)
         {
+
+            var newBook = bookService.Add(book_json);
+            if(newBook != null)
+            {
+                return Ok(newBook);
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
 
         // PUT api/Books/5
@@ -48,8 +58,12 @@ namespace SzellnerAPI.Controllers
 
         // DELETE api/Books/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(string id)
         {
+            return Ok(bookService.Delete(new Book()
+            {
+                Id = id
+            }));
         }
     }
 }

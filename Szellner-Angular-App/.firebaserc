@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "booksapi-dtb": {
+      "hosting": {
+        "Szellner-Angular-App": [
+          "booksapi-dtb"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "booksapi-dtb"
+  }
+}

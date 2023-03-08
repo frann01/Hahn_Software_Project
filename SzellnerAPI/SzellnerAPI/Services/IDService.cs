@@ -1,4 +1,7 @@
 ﻿using Google.Cloud.Firestore;
+using Google.Rpc;
+using Google.Type;
+using Microsoft.AspNetCore.Mvc;
 
 namespace SzellnerAPI.Services
 {
@@ -15,7 +18,7 @@ namespace SzellnerAPI.Services
             this.CollectionName = CollectionName;
         }
 
-        public T Get<T>(T record) where T : FIrebaseDoc
+        public T Get<T>(T record) where T : FirebaseDoc
         {
             DocumentReference docRef = firestoreDb.Collection(CollectionName).Document(record.Id);
             DocumentSnapshot snapshot = docRef.GetSnapshotAsync().GetAwaiter().GetResult();
@@ -30,6 +33,49 @@ namespace SzellnerAPI.Services
                 return null;
             }
 
+        }
+
+        public Array GetAll()
+        {
+            List<Dictionary<string, object>> collection = new List<Dictionary<string, object>>();
+            Query allBooks = firestoreDb.Collection(CollectionName);
+            QuerySnapshot allBooksCollection = allBooks.GetSnapshotAsync().GetAwaiter().GetResult();
+            foreach (DocumentSnapshot documentSnapshot in allBooksCollection.Documents)
+            {
+                Dictionary<string, object> book = documentSnapshot.ToDictionary();
+                book["id"] = documentSnapshot.Id;   
+                collection.Add(book);
+            }
+            return collection.ToArray();
+        }
+
+        public T Add<T>(T record) where T : FirebaseDoc
+        {
+            
+            try
+            {
+                CollectionReference collection = firestoreDb.Collection(CollectionName);
+                DocumentReference newDocument = collection.AddAsync(record).GetAwaiter().GetResult();
+                return record;
+            }
+            catch 
+            {
+                return null;
+            }
+        }
+
+        public WriteResult Delete(FirebaseDoc record)
+        {
+            
+            try 
+            {
+                DocumentReference docRef = firestoreDb.Collection(CollectionName).Document(record.Id);
+                return docRef.DeleteAsync().GetAwaiter().GetResult();
+            }
+            catch 
+            {
+                return null;
+            }
         }
     }
 }

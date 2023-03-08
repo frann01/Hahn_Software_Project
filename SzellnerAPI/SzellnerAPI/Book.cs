@@ -3,7 +3,7 @@ using Google.Cloud.Firestore;
 namespace SzellnerAPI
 {
     [FirestoreData]
-    public class Book : FIrebaseDoc
+    public class Book : FirebaseDoc
     {
         [FirestoreProperty]
         public string? Title { get; set; }
@@ -13,7 +13,6 @@ namespace SzellnerAPI
 
         [FirestoreProperty]
         public int YearOfPublication { get; set; }
-
 
         [FirestoreProperty]
         public int Pages { get; set; }

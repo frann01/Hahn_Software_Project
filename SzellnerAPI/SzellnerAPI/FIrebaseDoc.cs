@@ -1,7 +1,7 @@
 ﻿namespace SzellnerAPI
 {
-    public class FIrebaseDoc
+    public class FirebaseDoc
     {
-        public string Id { get; set; }
+        public string? Id { get; set; }
     }
 }
