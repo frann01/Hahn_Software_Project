@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideFirebaseApp } from '@angular/fire/app';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,20 +11,31 @@ import { GridComponent } from './grid/grid.component';
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { environment } from "./../environments/environment";
+import { AddBookComponent } from './add-book/add-book.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    GridComponent
+    GridComponent,
+    AddBookComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule, provideFirebaseApp(() => getFirestore())
+    AngularFireAuthModule, provideFirebaseApp(() => getFirestore()),
+    MatCardModule,
+    MatFormFieldModule,
+    FormsModule, ReactiveFormsModule,MatInputModule,BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

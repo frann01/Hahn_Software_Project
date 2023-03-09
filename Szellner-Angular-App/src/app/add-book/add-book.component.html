@@ -1,0 +1,96 @@
+<div class="row justify-content-center">
+    <form id="formId" [formGroup]="form" (ngSubmit)="OnSubmitBook(form.value)">
+            <div class="col-md-12">
+                <mat-card>
+                    <span class="d-flex mb-4 justify-content-center align-items-baseline">
+                        <h1>Book Information</h1>
+                    </span>
+
+                    <div class="row">
+                        <mat-form-field appearance="outline" floatLabel="always" class="col">
+                            <mat-label>Title</mat-label>
+                            <input matInput type="text" placeholder="Title" formControlName="title">
+                            <mat-error
+                            *ngIf="form.get('title')?.touched && form.get('title')?.hasError('required')">
+                            The title is required</mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="row">
+                        <mat-form-field appearance="outline" floatLabel="always" class="col">
+                            <mat-label>Author</mat-label>
+                            <input matInput type="text" placeholder="Author" formControlName="author">
+                            <mat-error
+                            *ngIf="form.get('author')?.touched && form.get('author')?.hasError('required')">
+                            The author´s name is required</mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="row">
+                        <mat-form-field appearance="outline" floatLabel="always" class="col">
+                            <mat-label>Publishing House</mat-label>
+                            <input matInput type="text" placeholder="Publishing House" formControlName="publishinghouse">
+                            <mat-error
+                            *ngIf="form.get('publishinghouse')?.touched && form.get('publishinghouse')?.hasError('required')">
+                            The publishing house  is required</mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="row">
+                        <mat-form-field appearance="outline" floatLabel="always" class="col">
+                            <mat-label>Year of Publication</mat-label>
+                            <input matInput type="number" placeholder="Year" formControlName="yearofpublication">
+                            <mat-error *ngIf="form.get('yearofpublication')?.touched && form.get('yearofpublication')?.hasError('required')">
+                            The year of publication is required
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" floatLabel="always" class="col">
+                            <mat-label>Number of pages</mat-label>
+                            <input matInput type="number" placeholder="Pages" formControlName="pages">
+                            <mat-error *ngIf="form.get('pages')?.touched && form.get('pages')?.hasError('required')">
+                            The number of pages is required
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" floatLabel="always" class="col">
+                            <mat-label>Language</mat-label>
+                            <input matInput type="text" placeholder="Language" formControlName="language">
+                            <mat-error
+                            *ngIf="form.get('language')?.touched && form.get('language')?.hasError('required')">
+                            The language is required</mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="row">
+                        <mat-form-field appearance="outline" floatLabel="always" class="col">
+                            <mat-label>Genres</mat-label>
+                            <input matInput type="text" placeholder="Genres" formControlName="genres">
+                            <mat-error *ngIf="form.get('genres')?.touched && form.get('genres')?.hasError('required')">
+                                At least one genre is required
+                                </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="row">
+                        <mat-form-field appearance="outline" floatLabel="always" class="col">
+                            <mat-label>Description</mat-label>
+                            <textarea required matInput type="text" placeholder="Desarrolle" formControlName="description"></textarea>
+                            <mat-error *ngIf="form.get('description')?.touched && form.get('description')?.hasError('required')">
+                                A Description is required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <br>
+                    
+                    <!--Botones-->
+                    <div class="button-div">
+                        <button class="button-48" role="button">
+                            <span class="text">Add Book</span>
+                        </button>
+                    </div>
+                </mat-card>
+            </div>
+    </form>
+    
+</div>

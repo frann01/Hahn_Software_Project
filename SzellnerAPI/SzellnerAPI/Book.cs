@@ -19,5 +19,14 @@ namespace SzellnerAPI
 
         [FirestoreProperty]
         public string? Genre { get; set; }
+
+        [FirestoreProperty]
+        public string? Language { get; set; }
+
+        [FirestoreProperty]
+        public string? Description { get; set; }
+
+        [FirestoreProperty]
+        public string? PublishingHouse { get; set; }
     }
 }

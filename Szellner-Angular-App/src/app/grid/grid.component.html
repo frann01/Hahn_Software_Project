@@ -8,7 +8,7 @@
             <th>Pages</th>
             <th></th>
             <th></th>
-
+            <th></th>
         </tr>
     </thead>
     <tbody *ngFor="let book of firestore.books">
@@ -20,7 +20,7 @@
             <td>{{book.Pages}}</td>
             <td><button type="button" class="btn btn-info  btn-circle">Modify<i class="fa fa-check"></i></button></td>
             <td><button type="button" class="btn btn-danger  btn-circle">Delete<i class="fa fa-check"></i></button></td>
-
+            <td><button type="button" class="btn btn-danger  btn-circle">Download<i class="fa fa-check"></i></button></td>
         </tr>
 
     </tbody>
