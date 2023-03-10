@@ -5,14 +5,15 @@
       <div class="p-5 mb-4 bg-light rounded-3">
         <div class="container-fluid py-5">
           <h1 class="display-5 fw-bold">Books</h1>
-          <app-grid></app-grid>
+          <app-grid (BookToBeDeleted)="DeleteBook($event)"></app-grid>
         </div>
       </div>
   
       <div class="row align-items-md-stretch">
         <div class="col-md-6">
           <div class="h-100 p-5 text-bg-dark rounded-3">
-            <h2>Detalle</h2>
+            <h2>Schema</h2>
+            <span></span>
           </div>
         </div>
         <div class="col-md-6">
@@ -25,7 +26,7 @@
       </div>
   
       <footer class="pt-3 mt-4 text-muted border-top">
-        &copy; 2022
+        &copy; 2023
       </footer>
     </div>
   </main>

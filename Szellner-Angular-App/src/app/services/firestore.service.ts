@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/compat/firestore';
-
+import { doc, getDoc } from "firebase/firestore";
+import { Subscription } from 'rxjs';
 
 
 @Injectable({
@@ -13,6 +14,8 @@ export class FirestoreService {
   private booksCollection?: AngularFirestoreCollection<any>;
   public books: any[] = [];
 
+  selectedBook:any=null;
+
   getBooks()
   {
     this.booksCollection = this.afs.collection<any>('books');
@@ -20,8 +23,11 @@ export class FirestoreService {
       {
         this.books=[];
         books.forEach(book => {
+          console.log(books)
           this.books.unshift(book);
         });
       })
   }
+
+
 }

@@ -6,27 +6,30 @@ namespace SzellnerAPI
     public class Book : FirebaseDoc
     {
         [FirestoreProperty]
-        public string? Title { get; set; }
+        public string? key { get; set; }
 
         [FirestoreProperty]
-        public string? Author { get; set; }
+        public string? title { get; set; }
 
         [FirestoreProperty]
-        public int YearOfPublication { get; set; }
+        public string? author { get; set; }
 
         [FirestoreProperty]
-        public int Pages { get; set; }
+        public int yearofpublication { get; set; }
 
         [FirestoreProperty]
-        public string? Genre { get; set; }
+        public int pages { get; set; }
 
         [FirestoreProperty]
-        public string? Language { get; set; }
+        public string? genre { get; set; }
 
         [FirestoreProperty]
-        public string? Description { get; set; }
+        public string? language { get; set; }
 
         [FirestoreProperty]
-        public string? PublishingHouse { get; set; }
+        public string? description { get; set; }
+
+        [FirestoreProperty]
+        public string? publishinghouse { get; set; }
     }
 }

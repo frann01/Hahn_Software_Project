@@ -31,5 +31,10 @@ namespace SzellnerAPI.Services
         {
             return IDService.Add(record);
         }
+
+        public Book Put(Book record)
+        {
+            return IDService.Put(record);
+        }
     }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-main',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
+
 
   ngOnInit(): void {
+  }
+
+  DeleteBook($event:any)
+  {
+    console.log($event)
+    let book : any = $event
+    this.http.delete('https://localhost:7246/api/Books/'+book.key)
+    .subscribe((res)=>{
+      console.log(res)
+    });
   }
 
 }

@@ -1,7 +1,9 @@
 ﻿using Google.Cloud.Firestore;
+using Google.Cloud.Firestore.V1;
 using Google.Rpc;
 using Google.Type;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace SzellnerAPI.Services
 {
@@ -9,7 +11,7 @@ namespace SzellnerAPI.Services
     {
         private readonly string? CollectionName;
         public FirestoreDb? firestoreDb;
-
+        public FirebaseDoc d;
         public IDService(string CollectionName)
         {
             string filepath = "./FSkey.json";
@@ -35,6 +37,23 @@ namespace SzellnerAPI.Services
 
         }
 
+        public Book Put(Book record) 
+        {
+            CollectionReference collection = firestoreDb.Collection(CollectionName);
+            DocumentReference docRef = firestoreDb.Collection(CollectionName).Document(record.key);
+            DocumentSnapshot snapshot = docRef.GetSnapshotAsync().GetAwaiter().GetResult();
+            if (snapshot.Exists)
+            {
+                collection.Document(record.key).SetAsync(record).GetAwaiter().GetResult();
+                return record;
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+
         public Array GetAll()
         {
             List<Dictionary<string, object>> collection = new List<Dictionary<string, object>>();
@@ -49,13 +68,18 @@ namespace SzellnerAPI.Services
             return collection.ToArray();
         }
 
-        public T Add<T>(T record) where T : FirebaseDoc
+        public Book Add(Book record)
         {
             
             try
             {
+       
                 CollectionReference collection = firestoreDb.Collection(CollectionName);
-                DocumentReference newDocument = collection.AddAsync(record).GetAwaiter().GetResult();
+                string Id = RandomString(20);
+                Book v = record;
+                v.key = Id;
+                collection.Document(Id).SetAsync(v).GetAwaiter().GetResult();
+                //DocumentReference newDocument = collection.AddAsync(record).GetAwaiter().GetResult();
                 return record;
             }
             catch 
@@ -64,7 +88,7 @@ namespace SzellnerAPI.Services
             }
         }
 
-        public WriteResult Delete(FirebaseDoc record)
+        public Google.Cloud.Firestore.WriteResult Delete(FirebaseDoc record)
         {
             
             try 
@@ -76,6 +100,22 @@ namespace SzellnerAPI.Services
             {
                 return null;
             }
+        }
+
+        public static string RandomString(int length)
+        {
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var stringChars = new char[length];
+            var random = new Random();
+
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                stringChars[i] = chars[random.Next(chars.Length)];
+            }
+
+            var finalString = new String(stringChars);
+
+            return finalString;
         }
     }
 }

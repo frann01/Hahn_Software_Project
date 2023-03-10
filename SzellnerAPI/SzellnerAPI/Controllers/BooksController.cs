@@ -52,8 +52,17 @@ namespace SzellnerAPI.Controllers
 
         // PUT api/Books/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult Put([FromBody]Book book_json)
         {
+            var newBook = bookService.Put(book_json);
+            if (newBook != null)
+            {
+                return Ok(newBook);
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
 
         // DELETE api/Books/5
