@@ -1,3 +1,8 @@
+<ng-container *ngIf="loading$ | async">
+    <div class="overlay"></div>
+    <mat-progress-spinner [mode]="'indeterminate'"></mat-progress-spinner>
+  </ng-container>
+<div class="row justify-content-center">
 <div class="row justify-content-center">
     <form id="formId" [formGroup]="form" (ngSubmit)="OnSubmitBook(form.value)">
             <div class="col-md-12">
@@ -42,6 +47,9 @@
                             <mat-error *ngIf="form.get('yearofpublication')?.touched && form.get('yearofpublication')?.hasError('required')">
                             The year of publication is required
                             </mat-error>
+                            <mat-error *ngIf="form.get('yearofpublication')?.hasError('min')">
+                                The year must be greater than 0
+                            </mat-error>
                         </mat-form-field>
 
                         <mat-form-field appearance="outline" floatLabel="always" class="col">
@@ -49,6 +57,9 @@
                             <input matInput type="number" placeholder="Pages" formControlName="pages">
                             <mat-error *ngIf="form.get('pages')?.touched && form.get('pages')?.hasError('required')">
                             The number of pages is required
+                            </mat-error>
+                            <mat-error *ngIf="form.get('pages')?.hasError('min')">
+                                The number of pages must be greater than 0
                             </mat-error>
                         </mat-form-field>
 
@@ -58,6 +69,9 @@
                             <mat-error
                             *ngIf="form.get('language')?.touched && form.get('language')?.hasError('required')">
                             The language is required</mat-error>
+                            <mat-error *ngIf="form.get('language')?.hasError('maxLength')">
+                                The language must have less than 30 characters
+                            </mat-error>
                         </mat-form-field>
                     </div>
 

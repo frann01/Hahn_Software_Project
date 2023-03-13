@@ -1,5 +1,3 @@
-C:\Users\USUARIO\Desktop\Proyecto Hahn\SzellnerAPI\SzellnerAPI\bin\Debug\net6.0\appsettings.Development.json
-C:\Users\USUARIO\Desktop\Proyecto Hahn\SzellnerAPI\SzellnerAPI\bin\Debug\net6.0\appsettings.json
 C:\Users\USUARIO\Desktop\Proyecto Hahn\SzellnerAPI\SzellnerAPI\bin\Debug\net6.0\SzellnerAPI.exe
 C:\Users\USUARIO\Desktop\Proyecto Hahn\SzellnerAPI\SzellnerAPI\bin\Debug\net6.0\SzellnerAPI.deps.json
 C:\Users\USUARIO\Desktop\Proyecto Hahn\SzellnerAPI\SzellnerAPI\bin\Debug\net6.0\SzellnerAPI.runtimeconfig.json
@@ -30,7 +28,6 @@ C:\Users\USUARIO\Desktop\Proyecto Hahn\SzellnerAPI\SzellnerAPI\obj\Debug\net6.0\
 C:\Users\USUARIO\Desktop\Proyecto Hahn\SzellnerAPI\SzellnerAPI\obj\Debug\net6.0\SzellnerAPI.pdb
 C:\Users\USUARIO\Desktop\Proyecto Hahn\SzellnerAPI\SzellnerAPI\obj\Debug\net6.0\SzellnerAPI.genruntimeconfig.cache
 C:\Users\USUARIO\Desktop\Proyecto Hahn\SzellnerAPI\SzellnerAPI\obj\Debug\net6.0\ref\SzellnerAPI.dll
-C:\Users\USUARIO\Desktop\Proyecto Hahn\SzellnerAPI\SzellnerAPI\bin\Debug\net6.0\FSkey.json
 C:\Users\USUARIO\Desktop\Proyecto Hahn\SzellnerAPI\SzellnerAPI\bin\Debug\net6.0\Google.Api.CommonProtos.dll
 C:\Users\USUARIO\Desktop\Proyecto Hahn\SzellnerAPI\SzellnerAPI\bin\Debug\net6.0\Google.Api.Gax.dll
 C:\Users\USUARIO\Desktop\Proyecto Hahn\SzellnerAPI\SzellnerAPI\bin\Debug\net6.0\Google.Api.Gax.Grpc.dll
@@ -50,3 +47,7 @@ C:\Users\USUARIO\Desktop\Proyecto Hahn\SzellnerAPI\SzellnerAPI\bin\Debug\net6.0\
 C:\Users\USUARIO\Desktop\Proyecto Hahn\SzellnerAPI\SzellnerAPI\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\USUARIO\Desktop\Proyecto Hahn\SzellnerAPI\SzellnerAPI\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\USUARIO\Desktop\Proyecto Hahn\SzellnerAPI\SzellnerAPI\bin\Debug\net6.0\System.Linq.Async.dll
+C:\Users\USUARIO\Desktop\Proyecto Hahn\SzellnerAPI\SzellnerAPI\bin\Debug\net6.0\FluentValidation.dll
+C:\Users\USUARIO\Desktop\Proyecto Hahn\SzellnerAPI\SzellnerAPI\bin\Debug\net6.0\Middleware\appsettings.Development.json
+C:\Users\USUARIO\Desktop\Proyecto Hahn\SzellnerAPI\SzellnerAPI\bin\Debug\net6.0\Middleware\appsettings.json
+C:\Users\USUARIO\Desktop\Proyecto Hahn\SzellnerAPI\SzellnerAPI\bin\Debug\net6.0\Services\FSkey.json

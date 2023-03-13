@@ -1,26 +1,31 @@
-﻿using Google.Cloud.Firestore;
+﻿using FluentValidation.Results;
+using Google.Cloud.Firestore;
 using Google.Cloud.Firestore.V1;
 using Google.Rpc;
 using Google.Type;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using SzellnerAPI.Models.Entities;
+using SzellnerAPI.Models.Validators;
 
 namespace SzellnerAPI.Services
 {
-    public class IDService
+    public class FirestoreService
     {
         private readonly string? CollectionName;
         public FirestoreDb? firestoreDb;
         public FirebaseDoc d;
-        public IDService(string CollectionName)
+
+        public FirestoreService(string CollectionName)
         {
-            string filepath = "./FSkey.json";
+            string filepath = ".\\Services\\FSkey.json";
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", filepath);
             firestoreDb = FirestoreDb.Create("booksapi-dtb");
             this.CollectionName = CollectionName;
         }
 
-        public T Get<T>(T record) where T : FirebaseDoc
+        public T GetBook<T>(T record) where T : FirebaseDoc
         {
             DocumentReference docRef = firestoreDb.Collection(CollectionName).Document(record.Id);
             DocumentSnapshot snapshot = docRef.GetSnapshotAsync().GetAwaiter().GetResult();
@@ -37,24 +42,36 @@ namespace SzellnerAPI.Services
 
         }
 
-        public Book Put(Book record) 
+        public Book ModifyBook(Book record) 
         {
-            CollectionReference collection = firestoreDb.Collection(CollectionName);
-            DocumentReference docRef = firestoreDb.Collection(CollectionName).Document(record.key);
-            DocumentSnapshot snapshot = docRef.GetSnapshotAsync().GetAwaiter().GetResult();
-            if (snapshot.Exists)
+            BookValidator validator = new BookValidator();
+            ValidationResult result = validator.Validate(record);
+            if(result.IsValid) 
             {
-                collection.Document(record.key).SetAsync(record).GetAwaiter().GetResult();
-                return record;
+                CollectionReference collection = firestoreDb.Collection(CollectionName);
+                DocumentReference docRef = firestoreDb.Collection(CollectionName).Document(record.key);
+                DocumentSnapshot snapshot = docRef.GetSnapshotAsync().GetAwaiter().GetResult();
+
+                if (snapshot.Exists)
+                {
+                    collection.Document(record.key).SetAsync(record).GetAwaiter().GetResult();
+                    return record;
+                }
+                else
+                {
+                    return null;
+                }
             }
-            else
+            else 
             {
                 return null;
             }
 
+            
+
         }
 
-        public Array GetAll()
+        public Array GetAllBooks()
         {
             List<Dictionary<string, object>> collection = new List<Dictionary<string, object>>();
             Query allBooks = firestoreDb.Collection(CollectionName);
@@ -68,19 +85,23 @@ namespace SzellnerAPI.Services
             return collection.ToArray();
         }
 
-        public Book Add(Book record)
+        public Book AddBook(Book record)
         {
             
             try
             {
-       
-                CollectionReference collection = firestoreDb.Collection(CollectionName);
-                string Id = RandomString(20);
-                Book v = record;
-                v.key = Id;
-                collection.Document(Id).SetAsync(v).GetAwaiter().GetResult();
-                //DocumentReference newDocument = collection.AddAsync(record).GetAwaiter().GetResult();
-                return record;
+                BookValidator validator = new BookValidator();
+                ValidationResult result = validator.Validate(record);
+                if (result.IsValid)
+                {
+                    CollectionReference collection = firestoreDb.Collection(CollectionName);
+                    string Id = RandomString(20);
+                    Book v = record;
+                    v.key = Id;
+                    collection.Document(Id).SetAsync(v).GetAwaiter().GetResult();
+                    return record;
+                }
+                else { return null; }
             }
             catch 
             {
@@ -88,7 +109,7 @@ namespace SzellnerAPI.Services
             }
         }
 
-        public Google.Cloud.Firestore.WriteResult Delete(FirebaseDoc record)
+        public Google.Cloud.Firestore.WriteResult DeleteBook(FirebaseDoc record)
         {
             
             try 

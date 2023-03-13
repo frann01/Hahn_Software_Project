@@ -11,6 +11,8 @@ import { Router, ActivatedRoute, ParamMap, NavigationExtras } from '@angular/rou
 export class GridComponent implements OnInit {
 
   @Output() BookToBeDeleted: EventEmitter<any> = new EventEmitter<any>();
+  @Output() BookToBeDownloaded: EventEmitter<any> = new EventEmitter<any>();
+
   constructor(public firestore : FirestoreService, public router:Router ) { }
 
   ngOnInit(): void {
@@ -19,6 +21,11 @@ export class GridComponent implements OnInit {
   deleteBook(Book : any)
   {
     this.BookToBeDeleted?.emit(Book)
+  }
+
+  downloadBook(Book : any)
+  {
+    this.BookToBeDownloaded?.emit(Book)
   }
 
   routeModify(book :any)

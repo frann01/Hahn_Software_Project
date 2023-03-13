@@ -1,4 +1,4 @@
-﻿namespace SzellnerAPI
+﻿namespace SzellnerAPI.Models.Entities
 {
     public class FirebaseDoc
     {

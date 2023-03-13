@@ -1,3 +1,4 @@
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -18,9 +19,17 @@
             <td>{{book.yearofpublication}}</td>
             <td>{{book.genre}}</td>
             <td>{{book.pages}}</td>
-            <td><button type="button" class="btn btn-info  btn-circle" (click)="routeModify(book)">Modify<i class="fa fa-check"></i></button></td>
-            <td><button type="button" class="btn btn-danger  btn-circle" (click)="deleteBook(book)">Delete<i class="fa fa-check"></i></button></td>
-            <td><button type="button" class="btn btn-danger  btn-circle" >Download<i class="fa fa-check"></i></button></td>
+            <td><button mat-flat-button (click)="routeModify(book)" color="primary">
+                <mat-icon>edit</mat-icon>
+            </button></td>
+
+            <td><button mat-flat-button (click)="downloadBook(book)" color="accent">
+                <mat-icon>download</mat-icon>
+            </button></td>
+
+            <td><button mat-flat-button (click)="deleteBook(book)" color="warn">
+                <mat-icon>delete</mat-icon>
+            </button></td>
         </tr>
 
     </tbody>

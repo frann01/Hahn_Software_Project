@@ -1,3 +1,7 @@
+<ng-container *ngIf="loading$ | async">
+    <div class="overlay"></div>
+    <mat-progress-spinner [mode]="'indeterminate'"></mat-progress-spinner>
+  </ng-container>
 <div class="row justify-content-center">
     <form id="formId" [formGroup]="form" (ngSubmit)="OnSubmitBook(form.value)">
             <div class="col-md-12">
@@ -11,7 +15,7 @@
                             <mat-label>Title</mat-label>
                             <input matInput type="text" placeholder="Title" formControlName="title">
                             <mat-error
-                            *ngIf="form.get('title')?.touched && form.get('title')?.hasError('required')">
+                            *ngIf="form.get('title')?.hasError('required')">
                             The title is required</mat-error>
                         </mat-form-field>
                     </div>
@@ -21,7 +25,7 @@
                             <mat-label>Author</mat-label>
                             <input matInput type="text" placeholder="Author" formControlName="author">
                             <mat-error
-                            *ngIf="form.get('author')?.touched && form.get('author')?.hasError('required')">
+                            *ngIf="form.get('author')?.hasError('required')">
                             The author´s name is required</mat-error>
                         </mat-form-field>
                     </div>
@@ -31,7 +35,7 @@
                             <mat-label>Publishing House</mat-label>
                             <input matInput type="text" placeholder="Publishing House" formControlName="publishinghouse">
                             <mat-error
-                            *ngIf="form.get('publishinghouse')?.touched && form.get('publishinghouse')?.hasError('required')">
+                            *ngIf="form.get('publishinghouse')?.hasError('required')">
                             The publishing house  is required</mat-error>
                         </mat-form-field>
                     </div>
@@ -40,33 +44,117 @@
                         <mat-form-field appearance="outline" floatLabel="always" class="col">
                             <mat-label>Year of Publication</mat-label>
                             <input matInput type="number" placeholder="Year" formControlName="yearofpublication">
-                            <mat-error *ngIf="form.get('yearofpublication')?.touched && form.get('yearofpublication')?.hasError('required')">
+                            <mat-error *ngIf="form.get('yearofpublication')?.hasError('required')">
                             The year of publication is required
+                            </mat-error>
+                            <mat-error *ngIf="form.get('yearofpublication')?.hasError('min')">
+                                The year must be greater than 0
                             </mat-error>
                         </mat-form-field>
 
                         <mat-form-field appearance="outline" floatLabel="always" class="col">
                             <mat-label>Number of pages</mat-label>
                             <input matInput type="number" placeholder="Pages" formControlName="pages">
-                            <mat-error *ngIf="form.get('pages')?.touched && form.get('pages')?.hasError('required')">
+                            <mat-error *ngIf="form.get('pages')?.hasError('required')">
                             The number of pages is required
+                            </mat-error>
+                            <mat-error *ngIf="form.get('pages')?.hasError('min')">
+                                The number of pages must be greater than 0
                             </mat-error>
                         </mat-form-field>
 
                         <mat-form-field appearance="outline" floatLabel="always" class="col">
-                            <mat-label>Language</mat-label>
-                            <input matInput type="text" placeholder="Language" formControlName="language">
-                            <mat-error
-                            *ngIf="form.get('language')?.touched && form.get('language')?.hasError('required')">
-                            The language is required</mat-error>
-                        </mat-form-field>
+                        <mat-label>Language</mat-label>
+                        <select required formControlName="language" matNativeControl>
+                            <option value="" selected disabled hidden>Select a language...</option>
+                            <option value="Afrikaans">Afrikaans</option>
+                            <option value="Albanian">Albanian</option>
+                            <option value="Arabic">Arabic</option>
+                            <option value="Armenian">Armenian</option>
+                            <option value="Basque">Basque</option>
+                            <option value="Bengali">Bengali</option>
+                            <option value="Bulgarian">Bulgarian</option>
+                            <option value="Catalan">Catalan</option>
+                            <option value="Cambodian">Cambodian</option>
+                            <option value="Chinese (Mandarin)">Chinese (Mandarin)</option>
+                            <option value="Croatian">Croatian</option>
+                            <option value="Czech">Czech</option>
+                            <option value="Danish">Danish</option>
+                            <option value="Dutch">Dutch</option>
+                            <option value="English">English</option>
+                            <option value="Estonian">Estonian</option>
+                            <option value="Fiji">Fiji</option>
+                            <option value="Finnish">Finnish</option>
+                            <option value="French">French</option>
+                            <option value="Georgian">Georgian</option>
+                            <option value="German">German</option>
+                            <option value="Greek">Greek</option>
+                            <option value="Gujarati">Gujarati</option>
+                            <option value="Hebrew">Hebrew</option>
+                            <option value="Hindi">Hindi</option>
+                            <option value="Hungarian">Hungarian</option>
+                            <option value="Icelandic">Icelandic</option>
+                            <option value="Indonesian">Indonesian</option>
+                            <option value="Irish">Irish</option>
+                            <option value="Italian">Italian</option>
+                            <option value="Japanese">Japanese</option>
+                            <option value="Javanese">Javanese</option>
+                            <option value="Korean">Korean</option>
+                            <option value="Latin">Latin</option>
+                            <option value="Latvian">Latvian</option>
+                            <option value="Lithuanian">Lithuanian</option>
+                            <option value="Macedonian">Macedonian</option>
+                            <option value="Malay">Malay</option>
+                            <option value="Malayalam">Malayalam</option>
+                            <option value="Maltese">Maltese</option>
+                            <option value="Maori">Maori</option>
+                            <option value="Marathi">Marathi</option>
+                            <option value="Mongolian">Mongolian</option>
+                            <option value="Nepali">Nepali</option>
+                            <option value="Norwegian">Norwegian</option>
+                            <option value="Persian">Persian</option>
+                            <option value="Polish">Polish</option>
+                            <option value="Portuguese">Portuguese</option>
+                            <option value="Punjabi">Punjabi</option>
+                            <option value="Quechua">Quechua</option>
+                            <option value="Romanian">Romanian</option>
+                            <option value="Russian">Russian</option>
+                            <option value="Samoan">Samoan</option>
+                            <option value="Serbian">Serbian</option>
+                            <option value="Slovak">Slovak</option>
+                            <option value="Slovenian">Slovenian</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="Swahili">Swahili</option>
+                            <option value="Swedish ">Swedish </option>
+                            <option value="Tamil">Tamil</option>
+                            <option value="Tatar">Tatar</option>
+                            <option value="Telugu">Telugu</option>
+                            <option value="Thai">Thai</option>
+                            <option value="Tibetan">Tibetan</option>
+                            <option value="Tonga">Tonga</option>
+                            <option value="Turkish">Turkish</option>
+                            <option value="Ukrainian">Ukrainian</option>
+                            <option value="Urdu">Urdu</option>
+                            <option value="Uzbek">Uzbek</option>
+                            <option value="Vietnamese">Vietnamese</option>
+                            <option value="Welsh">Welsh</option>
+                            <option value="Xhosa">Xhosa</option>
+                        </select>
+                        <mat-error *ngIf="form.get('language')?.hasError('required')">
+                            The language is required
+                        </mat-error>
+                        <mat-error *ngIf="form.get('language')?.hasError('maxLength')">
+                            The language must have less than 30 characters
+                        </mat-error>
+                            
+                    </mat-form-field>
                     </div>
 
                     <div class="row">
                         <mat-form-field appearance="outline" floatLabel="always" class="col">
                             <mat-label>Genres</mat-label>
                             <input matInput type="text" placeholder="Genres" formControlName="genre">
-                            <mat-error *ngIf="form.get('genre')?.touched && form.get('genre')?.hasError('required')">
+                            <mat-error *ngIf="form.get('genre')?.hasError('required')">
                                 At least one genre is required
                                 </mat-error>
                         </mat-form-field>
@@ -76,14 +164,13 @@
                         <mat-form-field appearance="outline" floatLabel="always" class="col">
                             <mat-label>Description</mat-label>
                             <textarea required matInput type="text" placeholder="Desarrolle" formControlName="description"></textarea>
-                            <mat-error *ngIf="form.get('description')?.touched && form.get('description')?.hasError('required')">
+                            <mat-error *ngIf="form.get('description')?.hasError('required')">
                                 A Description is required
                             </mat-error>
                         </mat-form-field>
                     </div>
                     <br>
                     
-                    <!--Botones-->
                     <div class="button-div">
                         <button class="button-48" role="button">
                             <span class="text">Add Book</span>
@@ -94,3 +181,5 @@
     </form>
     
 </div>
+
+

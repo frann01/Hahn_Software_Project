@@ -1,40 +1,41 @@
 ﻿using Google.Cloud.Firestore;
+using SzellnerAPI.Models.Entities;
 
 namespace SzellnerAPI.Services
 {
     public class BookService
     {
         private readonly string? CollectionName = "books";
-        private readonly IDService IDService;
+        private readonly FirestoreService firestore;
 
         public BookService()
         {
-            IDService = new IDService(CollectionName);
+            firestore = new FirestoreService(CollectionName);
         }
 
         public Book Get(Book record) 
         {
-            return IDService.Get(record);
+            return firestore.GetBook(record);
         }
 
         public WriteResult Delete(Book record)
         {
-            return IDService.Delete(record);
+            return firestore.DeleteBook(record);
         }
 
         public Array GetAll()
         {
-            return IDService.GetAll();
+            return firestore.GetAllBooks();
         }
 
         public Book Add(Book record)
         {
-            return IDService.Add(record);
+            return firestore.AddBook(record);
         }
 
         public Book Put(Book record)
         {
-            return IDService.Put(record);
+            return firestore.ModifyBook(record);
         }
     }
 }

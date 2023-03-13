@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ERcReIkeuga6YRbVN43r0KEr/06NDbxaqjidocRH8e/T0BQSnJ/Fjoe9+W4NQ2HW5STo7il/bygTY6ILrCu6HQ==",
+  "dgSpecHash": "U5TMpHAmkMnPBuXceo2uiMtqjIHq4rxErMujyg9hjuFbP8yRxhZY8vBzQaGfgC0V9NyrHQmxvi1KS/QeYRQhOA==",
   "success": true,
   "projectFilePath": "C:\\Users\\USUARIO\\Desktop\\Proyecto Hahn\\SzellnerAPI\\SzellnerAPI\\SzellnerAPI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\USUARIO\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
     "C:\\Users\\USUARIO\\.nuget\\packages\\google.api.commonprotos\\2.7.0\\google.api.commonprotos.2.7.0.nupkg.sha512",
     "C:\\Users\\USUARIO\\.nuget\\packages\\google.api.gax\\4.3.1\\google.api.gax.4.3.1.nupkg.sha512",
     "C:\\Users\\USUARIO\\.nuget\\packages\\google.api.gax.grpc\\4.3.1\\google.api.gax.grpc.4.3.1.nupkg.sha512",

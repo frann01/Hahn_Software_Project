@@ -23,7 +23,6 @@ export class FirestoreService {
       {
         this.books=[];
         books.forEach(book => {
-          console.log(books)
           this.books.unshift(book);
         });
       })

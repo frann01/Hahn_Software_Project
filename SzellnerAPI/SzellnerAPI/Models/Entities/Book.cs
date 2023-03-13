@@ -1,6 +1,6 @@
 using Google.Cloud.Firestore;
 
-namespace SzellnerAPI
+namespace SzellnerAPI.Models.Entities
 {
     [FirestoreData]
     public class Book : FirebaseDoc
