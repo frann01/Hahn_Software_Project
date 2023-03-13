@@ -18,11 +18,11 @@ export class ModifyBookComponent implements OnInit {
     key: ['', Validators.required],
     title: ['', Validators.required],
     author: ['', Validators.required],
-    pages: ['', Validators.required, Validators.min(1)],
-    yearofpublication: ['', Validators.required, Validators.min(1)],
+    pages: ['', [Validators.required, Validators.min(1)]],
+    yearofpublication: ['', [Validators.required, Validators.min(1)]],
     genre: ['', Validators.required],
     description: ['', Validators.required],
-    language: ['', Validators.required, Validators.maxLength(30)],
+    language: ['', [Validators.required, Validators.maxLength(30)]],
     publishinghouse: ['', Validators.required],
   });
 

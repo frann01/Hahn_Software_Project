@@ -6,26 +6,27 @@
 <main>
 
     <div class="container py-4">
-      
-  
-      <div class="p-5 mb-4 bg-light rounded-3">
+      <div class=" mb-4 bg-light rounded-3">
         <div class="container-fluid py-5">
-          <h1 class="display-5 fw-bold">Books</h1>
-          <app-grid (BookToBeDeleted)="DeleteBook($event)" (BookToBeDownloaded)="DownloadBook($event)"></app-grid>
+            <h1 class="display-5 fw-bold" >Books</h1>
+          <input  placeholder="Search" [(ngModel)]="searchParam" (ngModelChange)="hacerBusqueda()">
+          <div class="grid-container">          
+            <app-grid [books]="FilteredBooks" (BookToBeDeleted)="DeleteBook($event)" (BookToBeDownloaded)="DownloadBook($event)"></app-grid>
+          </div>
         </div>
       </div>
   
       <div class="row align-items-md-stretch">
         <div class="col-md-6">
           <div class="h-100 p-5 text-bg-dark rounded-3">
-            <h1>Schema</h1>
+            <h1 class="display-5 fw-bold" >Schema</h1>
             <span><ngx-json-viewer [json]="selectedBook"></ngx-json-viewer></span>
           </div>
         </div>
         <div class="col-md-6">
           <div class="h-100 p-5 bg-light border rounded-3">
-            <h2>Add borders</h2>
-            <p>Or, keep it light and add a border for some added definition to the boundaries of your content. Be sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing of both column's content for equal-height.</p>
+            <h2 class="display-5 fw-bold" >Download Collection</h2>
+            <h5>Thank you for taking the time to look at my book collection! Looking forward to working with you.</h5>
             <button class="btn btn-outline-secondary" (click)="DownloadCollection()" type="button">Download JSON File</button>
           </div>
         </div>

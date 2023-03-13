@@ -1,5 +1,5 @@
 import { FirestoreService } from './../services/firestore.service';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap, NavigationExtras } from '@angular/router';
 
 
@@ -12,6 +12,8 @@ export class GridComponent implements OnInit {
 
   @Output() BookToBeDeleted: EventEmitter<any> = new EventEmitter<any>();
   @Output() BookToBeDownloaded: EventEmitter<any> = new EventEmitter<any>();
+  @Input() books:any[];
+
 
   constructor(public firestore : FirestoreService, public router:Router ) { }
 
@@ -39,5 +41,4 @@ export class GridComponent implements OnInit {
     this.router.navigate(["modifyBook"], navigationExtras);
 
   }
-
 }

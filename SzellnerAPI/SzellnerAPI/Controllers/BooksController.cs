@@ -17,7 +17,6 @@ namespace SzellnerAPI.Controllers
             this.bookService = _bookService;
         }
 
-
         // GET: api/Books
         [HttpGet]
         public IActionResult Get()

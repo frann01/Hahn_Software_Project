@@ -15,11 +15,11 @@ export class AddBookComponent implements OnInit {
   form = this.fb.group({
     title: ['', Validators.required],
     author: ['', Validators.required],
-    pages: ['', Validators.required, Validators.min(1)],
-    yearofpublication: ['', Validators.required, Validators.min(1)],
+    pages: ['', [Validators.required, Validators.min(1)]],
+    yearofpublication: ['',[ Validators.required, Validators.min(1)]],
     genre: ['', Validators.required],
     description: ['', Validators.required],
-    language: ['', Validators.required, Validators.maxLength(30)],
+    language: ['', [Validators.required, Validators.maxLength(30)]],
     publishinghouse: ['', Validators.required],
   });
   loading$ = this.loader.loading$;
@@ -36,6 +36,7 @@ export class AddBookComponent implements OnInit {
     if(this.form.invalid)
     {
       this.form.markAllAsTouched
+      console.log(this.form.errors)
     }
     else
     {

@@ -6,6 +6,11 @@ form
     justify-content: baseline;
 }
 
+h1
+{
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
 mat-card
 {
   margin-bottom: 2%;

@@ -16,16 +16,21 @@ export class MainComponent implements OnInit {
   constructor(private http:HttpClient,
     public loader: LoadingService,
     private firestore :FirestoreService,
-    private snackbar : MatSnackBar) {}
+    private snackbar : MatSnackBar) {this.FilteredBooks = this.firestore.books}
   loading$ = this.loader.loading$;
+
+  searchParam :string;
+  FilteredBooks:any[];
 
   selectedBook={ "description": "", "yearofpublication": 1953, "title": "Fahrenheit 451", "key": "Hh7wAW8IrcCwDAZeS4zV", "language": "Spanish", "genre": "Fiction/Novel", "author": "Ray Bradbury", "publishinghouse": "P&J", "pages": 183 }
 
   ngOnInit(): void {
     this.loader.show()
     setTimeout(() => {
+      this.FilteredBooks = this.firestore.books
       this.loader.hide()
     }, 2000);
+
   }
 
   DownloadBook($event:any)
@@ -53,5 +58,43 @@ export class MainComponent implements OnInit {
       console.log(res)
     });
   }
+
+  
+  hacerBusqueda() {
+
+    console.log(this.firestore.books)
+
+    if (this.searchParam === "") {
+      this.FilteredBooks = this.firestore.books;
+      return;
+    }
+
+    const serachParamLower = this.searchParam.toLowerCase();
+    this.FilteredBooks = this.firestore.books.filter(book => this.doSearch(book, serachParamLower));
+  }
+
+  doSearch(value : any, searcher:string) {
+    if (typeof value === 'boolean') {
+      return false;
+    }
+
+    if (typeof value === 'object') {
+      for (let fieldKey in value) {
+        if (!this.estaEnLaListaNegraDeKeys(fieldKey) && this.doSearch(value[fieldKey], searcher)) {
+          return true;
+        }
+      }
+
+      return false;
+    }
+
+
+    return (typeof value == "string" ? value.toLocaleLowerCase() : value.toString()).includes(searcher)
+  }
+
+  estaEnLaListaNegraDeKeys(key : any) {
+    return ["description", "key"].indexOf(key) != -1
+  }
+
 
 }

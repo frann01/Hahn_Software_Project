@@ -7,7 +7,7 @@
             <div class="col-md-12">
                 <mat-card>
                     <span class="d-flex mb-4 justify-content-center align-items-baseline">
-                        <h1>Book Information</h1>
+                        <h1 class="display-5 fw-bold">Book Information</h1>
                     </span>
 
                     <div class="row">
@@ -163,7 +163,7 @@
                     <div class="row">
                         <mat-form-field appearance="outline" floatLabel="always" class="col">
                             <mat-label>Description</mat-label>
-                            <textarea required matInput type="text" placeholder="Desarrolle" formControlName="description"></textarea>
+                            <textarea required matInput type="text" placeholder="Brief description" formControlName="description"></textarea>
                             <mat-error *ngIf="form.get('description')?.hasError('required')">
                                 A Description is required
                             </mat-error>
