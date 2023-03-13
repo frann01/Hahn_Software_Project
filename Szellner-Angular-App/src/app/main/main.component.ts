@@ -51,7 +51,7 @@ export class MainComponent implements OnInit {
     console.log($event)
     this.loader.show()
     let book : any = $event
-    this.http.delete('https://localhost:7246/api/Books/'+book.key)
+    this.http.delete('http://mybookcollection.somee.com/api/Books/'+book.key)
     .subscribe((res)=>{
       this.loader.hide()
       this.snackbar.open('Book deleted succesfully', 'OK');

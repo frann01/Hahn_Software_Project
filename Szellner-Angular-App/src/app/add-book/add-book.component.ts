@@ -41,7 +41,7 @@ export class AddBookComponent implements OnInit {
     else
     {
       this.loader.show()
-      this.http.post('https://localhost:7246/api/Books', Book)
+      this.http.post('http://mybookcollection.somee.com/api/Books/', Book)
       .subscribe((res)=>{
         this.loader.hide()
         this.snackbar.open('Book added succesfully', 'OK');

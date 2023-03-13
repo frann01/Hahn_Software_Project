@@ -57,7 +57,7 @@ export class ModifyBookComponent implements OnInit {
     {
       this.loader.show()
       console.log(Book)
-      this.http.put('https://localhost:7246/api/Books/'+ Book.key, Book)
+      this.http.put('http://mybookcollection.somee.com/api/Books/'+ Book.key, Book)
       .subscribe((res)=>{
         this.loader.hide()
         this.snackbar.open('Book Modified succesfully', 'OK');

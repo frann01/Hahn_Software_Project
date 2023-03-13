@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>
+    </EncryptedPassword>
+    <_PublishTargetUrl>ftp://155.254.244.28/www.MyBookCollection.somee.com</_PublishTargetUrl>
+    <History>True|2023-03-13T18:32:01.9680597Z;False|2023-03-13T15:27:45.8596366-03:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="FluentValidation.dll">
+      <publishTime>02/20/2023 09:46:18</publishTime>
+    </File>
+    <File Include="Google.Api.CommonProtos.dll">
+      <publishTime>12/01/2022 08:50:46</publishTime>
+    </File>
+    <File Include="Google.Api.Gax.dll">
+      <publishTime>01/30/2023 08:52:28</publishTime>
+    </File>
+    <File Include="Google.Api.Gax.Grpc.dll">
+      <publishTime>01/30/2023 08:52:40</publishTime>
+    </File>
+    <File Include="Google.Apis.Auth.dll">
+      <publishTime>12/01/2022 09:07:32</publishTime>
+    </File>
+    <File Include="Google.Apis.Auth.PlatformServices.dll">
+      <publishTime>12/01/2022 09:07:32</publishTime>
+    </File>
+    <File Include="Google.Apis.Core.dll">
+      <publishTime>12/01/2022 09:07:24</publishTime>
+    </File>
+    <File Include="Google.Apis.dll">
+      <publishTime>12/01/2022 09:07:28</publishTime>
+    </File>
+    <File Include="Google.Cloud.Firestore.dll">
+      <publishTime>02/08/2023 08:56:52</publishTime>
+    </File>
+    <File Include="Google.Cloud.Firestore.V1.dll">
+      <publishTime>02/08/2023 08:56:50</publishTime>
+    </File>
+    <File Include="Google.Cloud.Location.dll">
+      <publishTime>06/07/2022 07:46:26</publishTime>
+    </File>
+    <File Include="Google.LongRunning.dll">
+      <publishTime>06/07/2022 06:56:34</publishTime>
+    </File>
+    <File Include="Google.Protobuf.dll">
+      <publishTime>05/25/2022 14:05:08</publishTime>
+    </File>
+    <File Include="Grpc.Auth.dll">
+      <publishTime>01/01/2023 21:25:06</publishTime>
+    </File>
+    <File Include="Grpc.Core.Api.dll">
+      <publishTime>01/01/2023 21:25:10</publishTime>
+    </File>
+    <File Include="Grpc.Net.Client.dll">
+      <publishTime>01/01/2023 21:25:14</publishTime>
+    </File>
+    <File Include="Grpc.Net.Common.dll">
+      <publishTime>01/01/2023 21:25:24</publishTime>
+    </File>
+    <File Include="Microsoft.Bcl.AsyncInterfaces.dll">
+      <publishTime>10/22/2021 20:47:36</publishTime>
+    </File>
+    <File Include="Microsoft.OpenApi.dll">
+      <publishTime>08/29/2020 17:14:12</publishTime>
+    </File>
+    <File Include="Middleware/appsettings.Development.json">
+      <publishTime>03/07/2023 16:13:48</publishTime>
+    </File>
+    <File Include="Middleware/appsettings.json">
+      <publishTime>03/07/2023 16:13:48</publishTime>
+    </File>
+    <File Include="Newtonsoft.Json.dll">
+      <publishTime>11/23/2022 23:10:26</publishTime>
+    </File>
+    <File Include="Services/FSkey.json">
+      <publishTime>03/07/2023 16:38:06</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.Swagger.dll">
+      <publishTime>10/16/2021 09:54:10</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.SwaggerGen.dll">
+      <publishTime>10/16/2021 09:54:36</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.SwaggerUI.dll">
+      <publishTime>10/16/2021 09:54:30</publishTime>
+    </File>
+    <File Include="System.Linq.Async.dll">
+      <publishTime>02/01/2022 12:33:00</publishTime>
+    </File>
+    <File Include="SzellnerAPI.deps.json">
+      <publishTime>03/13/2023 15:30:11</publishTime>
+    </File>
+    <File Include="SzellnerAPI.dll">
+      <publishTime>03/13/2023 15:30:11</publishTime>
+    </File>
+    <File Include="SzellnerAPI.exe">
+      <publishTime>03/13/2023 15:30:11</publishTime>
+    </File>
+    <File Include="SzellnerAPI.pdb">
+      <publishTime>03/13/2023 15:30:11</publishTime>
+    </File>
+    <File Include="SzellnerAPI.runtimeconfig.json">
+      <publishTime>03/13/2023 15:27:18</publishTime>
+    </File>
+    <File Include="web.config">
+      <publishTime>03/13/2023 15:30:25</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
