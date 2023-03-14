@@ -60,10 +60,7 @@ export class MainComponent implements OnInit {
   }
 
   
-  hacerBusqueda() {
-
-    console.log(this.firestore.books)
-
+  searchParams() {
     if (this.searchParam === "") {
       this.FilteredBooks = this.firestore.books;
       return;
@@ -80,7 +77,7 @@ export class MainComponent implements OnInit {
 
     if (typeof value === 'object') {
       for (let fieldKey in value) {
-        if (!this.estaEnLaListaNegraDeKeys(fieldKey) && this.doSearch(value[fieldKey], searcher)) {
+        if (!this.isInBlackList(fieldKey) && this.doSearch(value[fieldKey], searcher)) {
           return true;
         }
       }
@@ -92,7 +89,7 @@ export class MainComponent implements OnInit {
     return (typeof value == "string" ? value.toLocaleLowerCase() : value.toString()).includes(searcher)
   }
 
-  estaEnLaListaNegraDeKeys(key : any) {
+  isInBlackList(key : any) {
     return ["description", "key"].indexOf(key) != -1
   }
 

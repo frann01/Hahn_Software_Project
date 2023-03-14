@@ -7,9 +7,12 @@
 
     <div class="container py-4">
       <div class=" mb-4 bg-light rounded-3">
-        <div class="container-fluid py-5">
+        <div class="container-fluid ">
             <h1 class="display-5 fw-bold" >Books</h1>
-          <input  placeholder="Search" [(ngModel)]="searchParam" (ngModelChange)="hacerBusqueda()">
+          <div class="form">
+              <i class="fa fa-search"></i>
+              <input [(ngModel)]="searchParam" (ngModelChange)="searchParams()" type="text" class="form-control form-input" placeholder="Search anything...">
+          </div>
           <div class="grid-container">          
             <app-grid [books]="FilteredBooks" (BookToBeDeleted)="DeleteBook($event)" (BookToBeDownloaded)="DownloadBook($event)"></app-grid>
           </div>

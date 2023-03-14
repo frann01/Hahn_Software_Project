@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using SzellnerAPI.Models.Entities;
 using SzellnerAPI.Services;
 
@@ -6,6 +7,7 @@ namespace SzellnerAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+
     public class BooksController : ControllerBase
     {
         private readonly BookService bookService;
