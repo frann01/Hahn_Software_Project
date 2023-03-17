@@ -50,4 +50,4 @@ C:\Users\USUARIO\Desktop\Proyecto Hahn\SzellnerAPI\SzellnerAPI\bin\Debug\net6.0\
 C:\Users\USUARIO\Desktop\Proyecto Hahn\SzellnerAPI\SzellnerAPI\bin\Debug\net6.0\FluentValidation.dll
 C:\Users\USUARIO\Desktop\Proyecto Hahn\SzellnerAPI\SzellnerAPI\bin\Debug\net6.0\Middleware\appsettings.Development.json
 C:\Users\USUARIO\Desktop\Proyecto Hahn\SzellnerAPI\SzellnerAPI\bin\Debug\net6.0\Middleware\appsettings.json
-C:\Users\USUARIO\Desktop\Proyecto Hahn\SzellnerAPI\SzellnerAPI\bin\Debug\net6.0\Services\FSkey.json
+C:\Users\USUARIO\Desktop\Proyecto Hahn\SzellnerAPI\SzellnerAPI\bin\Debug\net6.0\FSkey.json

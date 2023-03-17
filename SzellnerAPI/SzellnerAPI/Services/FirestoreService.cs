@@ -17,9 +17,11 @@ namespace SzellnerAPI.Services
         public FirestoreDb? firestoreDb;
         public FirebaseDoc d;
 
+
+
         public FirestoreService(string CollectionName)
         {
-            string filepath = ".\\Services\\FSkey.json";
+            string filepath = "./FSkey.json";
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", filepath);
             firestoreDb = FirestoreDb.Create("booksapi-dtb");
             this.CollectionName = CollectionName;

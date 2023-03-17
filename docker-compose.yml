@@ -1,0 +1,13 @@
+---
+version: "3.8"
+services:
+  aplication:
+    build: ./Szellner-Angular-App
+    ports: 
+      - 80:80
+    volumes:
+      - /src/app
+  api:
+    build: ./SzellnerAPI/SzellnerAPI
+    ports: 
+      - 3000:3000
