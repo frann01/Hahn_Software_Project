@@ -10,4 +10,4 @@ services:
   api:
     build: ./SzellnerAPI/SzellnerAPI
     ports: 
-      - 3000:3000
+      - 3000:80
